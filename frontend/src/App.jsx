@@ -5,7 +5,8 @@ import { RoleContext } from "./context/RoleContext";
 import PublicLayout from "./components/layout/PublicLayout";
 import AdminLayout from "./components/layout/AdminLayout";
 import DealerLayout from "./components/layout/DealerLayout";
-
+// В App.js
+import './styles/mobile-responsive.css';
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import InviteRegisterForm from "./pages/InviteRegisterForm";
@@ -93,9 +94,9 @@ function AppRoutes() {
       </Route>
 
       {/* Якщо роль не завантажена і маршрут не публічний — завантаження */}
-      {role === null && location.pathname !== "/" && location.pathname !== "/login" && (
+      {/* {role === null && location.pathname !== "/" && location.pathname !== "/login" && (
         <Route path="*" element={<div>Завантаження...</div>} />
-      )}
+      )} */}
 
       {/* Якщо неавторизований і маршрут не публічний — редірект на логін */}
       {!role && location.pathname !== "/" && location.pathname !== "/login" && !location.pathname.startsWith("/api/admin") && (

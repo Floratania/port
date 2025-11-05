@@ -53,12 +53,26 @@ class CustomUser(AbstractUser):
     # guid = models.CharField(max_length=255, null=True, blank=True)
     update_time = models.DateTimeField(auto_now=True)
     old_user_id = models.CharField(
-    max_length=128, 
-    null=True, 
-    blank=True, 
-    db_index=True, 
-    verbose_name="Старий User ID"
-)
+        max_length=128, 
+        null=True, 
+        blank=True, 
+        db_index=True, 
+        verbose_name="Старий User ID"
+    )
+
+
+    telegram_id = models.CharField(
+        max_length=50,
+        blank=True,
+        null=True,
+        verbose_name="Telegram ID"
+    )
+    
+    notify_telegram = models.BooleanField(
+        default=False,
+        verbose_name="Отримувати сповіщення в Telegram"
+    )
+
     def __str__(self):
         return f"{self.username} ({self.role})"
     
